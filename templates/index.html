@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommandations de Films</title>
+</head>
+<body>
+    <h1>Recommandations de Films</h1>
+    <form action="/" method="post">
+        <label for="search_query">Entrez un titre de film :</label>
+        <input type="text" id="search_query" name="search_query" required>
+        <button type="submit">Rechercher</button>
+    </form>
+
+    {% if recommendations %}
+        <h2>Résultats pour "{{ search_query }}" :</h2>
+        <ul>
+            {% for movie_title in recommendations %}
+                <li>{{ movie_title }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
